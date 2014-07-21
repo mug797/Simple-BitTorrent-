@@ -1,0 +1,5 @@
+ls peer_1001/ | wc -l
+ls peer_1002/ | wc -l
+ls peer_1003/ | wc -l
+ls peer_1004/ | wc -l
+ls peer_1005/ | wc -l

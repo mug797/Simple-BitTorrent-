@@ -1,0 +1,40 @@
+#!/bin/bash
+
+rm -rf ./output*
+x=1024
+y=1024
+p=1
+q=1
+s=1
+sleepArray=(0 80 55 42 33 25 20 15 10)
+for i in 1 2 3 4 5 6 7 8
+do
+    mkdir "output$p"
+    q=1
+    for j in 1 2 3 4 
+    do
+	./compileJava
+	sleep 15
+	rm -rf ./peer_100*
+	java peerProcess 1001 &
+	java peerProcess 1002 &
+	java peerProcess 1003 &
+	java peerProcess 1004 &
+	java peerProcess 1005 &
+	s=1
+	for k in 1 2 3 4 5 6 7 8
+	do
+	    sleep ${sleepArray[$p]}
+	    echo "Sleeping for ${sleepArray[$p]}"
+	    ./checkScript > "output$p/output$q$s"
+	    let s=$s+1
+	done
+    
+	let q=$q+1
+    done
+    let p=$p+1
+    let y=$x
+    let x=$x*2
+    sed s/$y/$x/ Common.cfg > Common1.cfg
+    mv Common1.cfg Common.cfg
+done

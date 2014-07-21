@@ -1,0 +1,9 @@
+./compileJava
+rm ./log100*
+rm -rf ./peer_100*
+java StartRemotePeers
+#java peerProcess 1001 &
+#java peerProcess 1002 &
+#java peerProcess 1003 &
+#java peerProcess 1004 &
+#java peerProcess 1005 &

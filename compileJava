@@ -1,0 +1,6 @@
+javac RemotePeerInfo.java
+javac StartRemotePeers.java
+javac peerProcess.java
+javac Connection.java
+javac Message.java
+pkill -f java
